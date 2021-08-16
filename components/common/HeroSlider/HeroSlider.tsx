@@ -19,7 +19,7 @@ interface HeroSliderProps {
 const HeroSlider: React.FC<HeroSliderProps> = ({
   children,
   className = '',
-  height = 400,
+  height = 600,
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isMounted, setIsMounted] = useState(false)

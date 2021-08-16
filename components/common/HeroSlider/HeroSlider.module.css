@@ -1,6 +1,7 @@
 .root {
   @apply relative w-full select-none;
   overflow: hidden;
+  max-height: 65vh;
 }
 
 .slider {
