@@ -1,9 +1,10 @@
 import commerce from '@lib/api/commerce'
-import { Layout } from '@components/common'
+import { Layout, HeroSlider } from '@components/common'
 import { ProductCard } from '@components/product'
 import { Grid, Marquee, Hero } from '@components/ui'
 // import HomeAllProductsGrid from '@components/common/HomeAllProductsGrid'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import Image from 'next/image'
 
 export async function getStaticProps({
   preview,
@@ -40,6 +41,32 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
+      <HeroSlider>
+        <Image
+          src="/assets/hero/hero-1.jpg"
+          alt="Hero image 1"
+          layout="fill"
+          objectFit="cover"
+          placeholder="blur"
+          blurDataURL="/assets/hero/hero-1.jpg"
+        />
+        <Image
+          src="/assets/hero/hero-2.jpg"
+          alt="Hero image 2"
+          layout="fill"
+          objectFit="cover"
+          placeholder="blur"
+          blurDataURL="/assets/hero/hero-2.jpg"
+        />
+        <Image
+          src="/assets/hero/hero-3.jpg"
+          alt="Hero image 3"
+          layout="fill"
+          objectFit="cover"
+          placeholder="blur"
+          blurDataURL="/assets/hero/hero-3.jpg"
+        />
+      </HeroSlider>
       <Grid variant="filled">
         {products.slice(0, 3).map((product: any, i: number) => (
           <ProductCard
