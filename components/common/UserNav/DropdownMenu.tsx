@@ -9,6 +9,7 @@ import { Moon, Sun } from '@components/icons'
 import { useUI } from '@components/ui/context'
 import ClickOutside from '@lib/click-outside'
 import useLogout from '@framework/auth/use-logout'
+import useCustomer from '@framework/customer/use-customer'
 
 import {
   disableBodyScroll,
@@ -41,6 +42,7 @@ const DropdownMenu: FC<DropdownMenuProps> = ({ open = false }) => {
   const { theme, setTheme } = useTheme()
   const [display, setDisplay] = useState(false)
   const { closeSidebarIfPresent } = useUI()
+  const { data: customer } = useCustomer()
   const ref = useRef() as React.MutableRefObject<HTMLUListElement>
 
   useEffect(() => {
@@ -64,6 +66,11 @@ const DropdownMenu: FC<DropdownMenuProps> = ({ open = false }) => {
           onClick={() => setDisplay(!display)}
           aria-label="Menu"
         >
+          {customer && (
+            <span className="mr-3 align-middle hidden sm:inline-block">
+              Welcome, {customer.firstName}
+            </span>
+          )}
           <Avatar />
         </button>
         {display && (
