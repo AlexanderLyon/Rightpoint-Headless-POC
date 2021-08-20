@@ -28,6 +28,13 @@ const LOCALES_MAP: Record<string, LOCALE_DATA> = {
       alt: 'US Flag',
     },
   },
+  'es-AR': {
+    name: 'Español - Argentina',
+    img: {
+      filename: 'flag-es-ar.svg',
+      alt: 'Bandera Argentina',
+    },
+  },
 }
 
 const I18nWidget: FC = () => {
