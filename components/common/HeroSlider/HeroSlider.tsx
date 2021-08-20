@@ -11,7 +11,7 @@ import s from './HeroSlider.module.css'
 import SliderControl from './SliderControl'
 
 interface HeroSliderProps {
-  children: React.ReactNode[]
+  children: React.ReactNode | React.ReactNode[]
   className?: string
   height?: number
 }
@@ -81,26 +81,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
         className={cn(s.slider, { [s.show]: isMounted }, 'keen-slider')}
       >
         {slider && <SliderControl onPrev={onPrev} onNext={onNext} />}
-        {Children.map(children, (child, i) => {
-          if (isValidElement(child)) {
-            return (
-              <div
-                key={i}
-                className={`${
-                  child.props.className ? `${child.props.className} ` : ''
-                }keen-slider__slide`}
-              >
-                {{
-                  ...child,
-                  props: {
-                    ...child.props,
-                  },
-                }}
-              </div>
-            )
-          }
-          return child
-        })}
+        {children}
       </div>
     </div>
   )
